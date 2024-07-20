@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Movie Ratings Home{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Welcome!</h1>
+
+    <!-- Create Account Section -->
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="mb-3">Create an Account</h2>
+            <form action="/user" method="POST">
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Log In Section -->
+        <div class="col-md-6">
+            <h2 class="mb-3">Log In</h2>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

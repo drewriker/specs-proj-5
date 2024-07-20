@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.email }} - Details{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>{{ user.email }}</h1>
+
+    <div class="mt-4">
+        <h2>Ratings Given</h2>
+        {% if user.ratings %}
+        <div class="list-group">
+            {% for rating in user.ratings %}
+                <a href="/movies/{{ rating.movie.movie_id }}" class="list-group-item list-group-item-action">
+                    <h5 class="mb-1">{{ rating.movie.title }}</h5>
+                    <p class="mb-1">Rating: {{ rating.score }}</p>
+                    <small>{{ rating.movie.release_date.strftime('%B %d, %Y') }}</small>
+                </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>This user has not rated any movies yet.</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('all_users') }}" class="btn btn-secondary mt-4">Back to All Users</a>
+</div>
+{% endblock %}
